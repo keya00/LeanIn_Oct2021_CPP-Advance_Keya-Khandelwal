@@ -1,0 +1,51 @@
+// { Driver Code Starts
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+
+
+class Solution{
+	public:
+   	vector<int>  common_digits(vector<int>nums)
+   	{
+        int temp[10]={0} ;
+       int n=nums.size();
+        for(int i=0;i<n;i++)
+        {
+            while(nums[i])
+            {
+                int r=nums[i]%10 ;
+                temp[r]++ ;
+                nums[i]=nums[i]/10 ;
+            }
+        }
+       vector<int>v;
+        for(int i=0;i<10;i++)
+            if(temp[i]!=0)
+                v.push_back(i);
+               
+        return v;
+   	}
+    
+};
+
+// { Driver Code Starts.
+int main(){
+	int tc;
+	cin >> tc;
+	while(tc--){
+		int n;
+		cin >> n;
+		vector<int>nums(n);
+		for(int i = 0; i < nums.size(); i++)cin >> nums[i];
+		Solution ob;
+		vector<int> ans = ob.common_digits(nums);
+		for(auto i: ans)
+			cout << i << " ";
+		cout << "\n";
+	}  
+	return 0;
+}  // } Driver Code Ends
