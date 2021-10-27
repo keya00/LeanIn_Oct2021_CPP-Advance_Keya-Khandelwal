@@ -1,0 +1,68 @@
+#include<graphics.h>
+#include<conio.h>
+#include<stdio.h>
+
+main()
+{
+	int gdriver=DETECT;
+	int gmode;
+	
+	initgraph(&gdriver,&gmode,(char*)"");
+	
+	for(int i=0;i<1000;i++)
+	{
+		setcolor(LIGHTGREEN);
+		//lowerbody
+		line(200+i,200,200+i,280);
+		line(200+i,280,250+i,280);
+		line(300+i,280,370+i,280);
+		line(415+i,280,460+i,280);
+		line(460+i,280,460+i,200);
+		line(460+i,200,410+i,200);
+		line(260+i,200,200+i,200);
+		
+		//upperbody
+		line(410+i,200,410+i,150);
+		line(410+i,150,260+i,150);
+		line(260+i,150,260+i,200);
+		
+		//wheel
+		circle(273+i,280,25);
+		circle(393+i,280,25);
+		
+		setfillstyle(SOLID_FILL,BLUE);
+		circle(273+i,280,5);
+		circle(393+i,280,5);
+		floodfill(273+i,280,LIGHTGREEN);
+		floodfill(393+i,280,LIGHTGREEN);
+		
+		//windows
+		setfillstyle(HATCH_FILL,BLUE);
+		line(290+i,170,330+i,170);
+		line(290+i,190,330+i,190);
+		line(290+i,170,290+i,190);
+		line(330+i,170,330+i,190);
+		floodfill(300+i,180,LIGHTGREEN);
+		
+		
+		line(350+i,170,390+i,170);
+		line(390+i,170,390+i,190);
+		line(390+i,190,350+i,190);
+		line(350+i,190,350+i,170);
+		floodfill(360+i,180,LIGHTGREEN);
+		
+		//headlight
+		setfillstyle(SOLID_FILL,YELLOW);
+		line(460+i,200,470+i,200);
+		line(470+i,200,470+i,230);
+		line(470+i,230,460+i,230);
+		line(460+i,230,460+i,200);
+		floodfill(465+i,201,LIGHTGREEN);
+		
+		delay(10);
+		cleardevice();
+	}
+	
+	getch();
+	closegraph();
+}
